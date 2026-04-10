@@ -1,5 +1,7 @@
 package src.BancoCliente;
 
+import java.time.LocalDateTime;
+
 public class CuentaVivienda extends CuentaBanco {
 
     public CuentaVivienda(int id, ClienteBnaco c) {
@@ -29,6 +31,7 @@ public class CuentaVivienda extends CuentaBanco {
 
     private void restarSaldo(double cantidad) {
         this.saldo -= cantidad;
+        movimientos.add(new Movimiento(LocalDateTime.now(), cantidad, saldo, "Retiro"));
     }
 
     public void sumarSaldo(double cantidad) {

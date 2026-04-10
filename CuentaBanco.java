@@ -80,7 +80,7 @@ public abstract class CuentaBanco {
        }
 
        @Override
-       public String verMovimientos() {
+       public String toString() {
         return "Movimiento [fechaHora=" + fechaHora + ", importe=" + importe + ", saldoFinal=" + saldoFinal + ", tipo="
                 + tipo + "]";
        }

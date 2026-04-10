@@ -33,15 +33,16 @@ public class AppSucursalBancaria {
         System.out.println(c2.saldo);
         try {
             c2.retirarDinero(100);
+            c2.retirarDinero(50);
         } catch (excepcionValidar e) {
             System.out.println(e);
         }
         System.out.println(c2.saldo);
-        System.out.println(c2.movimientos.toString());
-
+        System.out.println(c2.movimientos);
         // MenuCrear();
-
     }
+
+    
 
     public static void MenuCrear() {
 

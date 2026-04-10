@@ -31,8 +31,7 @@ public class CuentaCorriente extends CuentaBanco {
 
     private void restarSaldo(double cantidad){
         this.saldo -= cantidad;
-        String p="hola";
-        movimientos.add(new Movimiento(LocalDateTime.now(), cantidad, cantidad, p));
+        movimientos.add(new Movimiento(LocalDateTime.now(), cantidad, saldo, "Retiro"));
     }
 
     public void sumarSaldo(double cantidad) {
