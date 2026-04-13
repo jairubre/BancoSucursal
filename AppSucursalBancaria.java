@@ -42,6 +42,12 @@ public class AppSucursalBancaria {
          * System.out.println(c2.movimientos);
          */
         MenuCrear();
+        System.out.println("************************************");
+        System.out.println(clientes.size());
+        for (CuentaBanco c1 : clientes) {
+            System.out.println("hola");
+            System.out.println(c1.toString());
+        }
 
     }
 
@@ -101,8 +107,8 @@ public class AppSucursalBancaria {
                     String profesion = sc.nextLine();
                     CuentaBanco c1 = new CuentaCorriente(clientes.size() + 1,
                             new ClienteBnaco(nombre, apellidos, dni, edad, fecha, ciudad, profesion));
-
-                    System.out.println(c1.toString());
+                    clientes.add(c1);
+                  
 
                 } catch (InputMismatchException e) {
                     System.out.println("Has metido un valor mal ");
@@ -139,7 +145,8 @@ public class AppSucursalBancaria {
                     String profesion = sc.nextLine();
                     CuentaBanco c1 = new CuentaVivienda(clientes.size() + 1,
                             new ClienteBnaco(nombre, apellidos, dni, edad, fecha, ciudad, profesion));
-                    System.out.println(c1.toString());
+                    clientes.add(c1);
+                    
 
                 } catch (InputMismatchException e) {
                     System.out.println("Has metido un valor mal ");
@@ -147,6 +154,7 @@ public class AppSucursalBancaria {
                     System.out.println(e);
                 }
                 break;
+
             case 3:
                 System.out.println("Vamos a crear una cuenta corriente");
                 try {
@@ -175,15 +183,14 @@ public class AppSucursalBancaria {
                     String profesion = sc.nextLine();
                     CuentaBanco c1 = new FondoInversion(clientes.size() + 1,
                             new ClienteBnaco(nombre, apellidos, dni, edad, fecha, ciudad, profesion));
-
-                    System.out.println(c1.toString());
+                    clientes.add(c1);
+                   
 
                 } catch (InputMismatchException e) {
                     System.out.println("Has metido un valor mal ");
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-
                 break;
 
             default:

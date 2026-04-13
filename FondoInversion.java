@@ -13,8 +13,12 @@ public class FondoInversion extends CuentaBanco {
 
     }
 
-    public void ingresarDinero(double cantidad) {
-        sumarSaldo(cantidad);
+    public void ingresarDinero(double cantidad) throws excepcionValidar {
+          if (cantidad <= 0) {
+            throw new excepcionValidar();
+        } else {
+            sumarSaldo(cantidad);
+        }
     }
 
     public void validarSaldo(double cantidad) throws excepcionValidar {
@@ -49,7 +53,9 @@ public class FondoInversion extends CuentaBanco {
 
     @Override
     public String toString() {
-        return "CuentaCorriente []" + super.toString();
+          return "\n=== Fondo Inversión ===\n" +
+           super.toString() +
+           "\n========================";
     }
 
 }

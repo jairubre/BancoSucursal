@@ -45,7 +45,9 @@ public class CuentaVivienda extends CuentaBanco {
 
     @Override
     public String toString() {
-        return "CuentaCorriente []" + super.toString();
+            return "\n=== Cuenta Vivienda ===\n" +
+           super.toString() +
+           "\n========================";
     }
 
 }
