@@ -13,7 +13,7 @@ public class AppSucursalBancaria {
 
     public static void main(String[] args) {
 
-        CuentaCorriente c1 = new CuentaCorriente(1, new ClienteBnaco("null", "null",
+       /*  CuentaCorriente c1 = new CuentaCorriente(1, new ClienteBnaco("null", "null",
                 "null", 10, LocalDate.of(2001, 12, 11), "null", "null"));
         System.out.println(c1.toString());
         c1.ingresarDinero(100);
@@ -38,8 +38,9 @@ public class AppSucursalBancaria {
             System.out.println(e);
         }
         System.out.println(c2.saldo);
-        System.out.println(c2.movimientos);
+        System.out.println(c2.movimientos);*/
         MenuCrear();
+        
        
         
     }
