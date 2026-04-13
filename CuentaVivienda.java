@@ -13,8 +13,12 @@ public class CuentaVivienda extends CuentaBanco {
         validarSaldo(cantidad);
     }
 
-    public void ingresarDinero(double cantidad) {
-        sumarSaldo(cantidad);
+    public void ingresarDinero(double cantidad) throws excepcionValidar {
+          if (cantidad <= 0) {
+            throw new excepcionValidar();
+        } else {
+            sumarSaldo(cantidad);
+        }
     }
 
     public void validarSaldo(double cantidad) throws excepcionValidar {

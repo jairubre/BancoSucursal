@@ -12,8 +12,13 @@ public class CuentaCorriente extends CuentaBanco {
         validarSaldo(cantidad);
     }
 
-    public void ingresarDinero(double cantidad) {
-        sumarSaldo(cantidad);
+    public void ingresarDinero(double cantidad) throws excepcionValidar {
+        if (cantidad <= 0) {
+            throw new excepcionValidar();
+        } else {
+            sumarSaldo(cantidad);
+        }
+
     }
 
     public void validarSaldo(double cantidad) throws excepcionValidar {
@@ -29,7 +34,7 @@ public class CuentaCorriente extends CuentaBanco {
 
     }
 
-    private void restarSaldo(double cantidad){
+    private void restarSaldo(double cantidad) {
         this.saldo -= cantidad;
         movimientos.add(new Movimiento(LocalDateTime.now(), cantidad, saldo, "Retiro"));
     }
@@ -45,13 +50,9 @@ public class CuentaCorriente extends CuentaBanco {
 
     @Override
     public String toString() {
-         return "\n=== Cuenta Corriente ===\n" +
-           super.toString() +
-           "\n========================";
+        return "\n=== Cuenta Corriente ===\n" +
+                super.toString() +
+                "\n========================";
     }
-
-  
-
-    
 
 }

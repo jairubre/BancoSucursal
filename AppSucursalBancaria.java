@@ -108,7 +108,6 @@ public class AppSucursalBancaria {
                     CuentaBanco c1 = new CuentaCorriente(clientes.size() + 1,
                             new ClienteBnaco(nombre, apellidos, dni, edad, fecha, ciudad, profesion));
                     clientes.add(c1);
-                  
 
                 } catch (InputMismatchException e) {
                     System.out.println("Has metido un valor mal ");
@@ -146,7 +145,6 @@ public class AppSucursalBancaria {
                     CuentaBanco c1 = new CuentaVivienda(clientes.size() + 1,
                             new ClienteBnaco(nombre, apellidos, dni, edad, fecha, ciudad, profesion));
                     clientes.add(c1);
-                    
 
                 } catch (InputMismatchException e) {
                     System.out.println("Has metido un valor mal ");
@@ -184,7 +182,6 @@ public class AppSucursalBancaria {
                     CuentaBanco c1 = new FondoInversion(clientes.size() + 1,
                             new ClienteBnaco(nombre, apellidos, dni, edad, fecha, ciudad, profesion));
                     clientes.add(c1);
-                   
 
                 } catch (InputMismatchException e) {
                     System.out.println("Has metido un valor mal ");
