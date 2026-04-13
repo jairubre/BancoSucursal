@@ -13,39 +13,37 @@ public class AppSucursalBancaria {
 
     public static void main(String[] args) {
 
-       /*  CuentaCorriente c1 = new CuentaCorriente(1, new ClienteBnaco("null", "null",
-                "null", 10, LocalDate.of(2001, 12, 11), "null", "null"));
-        System.out.println(c1.toString());
-        c1.ingresarDinero(100);
-        System.out.println(c1.saldo);
-        try {
-            c1.retirarDinero(400);
-        } catch (excepcionValidar e) {
-            System.out.println(e);
-        }
-        System.out.println(c1.saldo);
-        System.out.println("-----------------------------------");
-        CuentaVivienda c2 = new CuentaVivienda(1, new ClienteBnaco("Jaime", "null",
-                "null",
-                12, LocalDate.of(2001, 11, 1), "Mostoles", "Cura"));
-        System.out.println(c2.toString());
-        c2.ingresarDinero(100);
-        System.out.println(c2.saldo);
-        try {
-            c2.retirarDinero(100);
-            c2.retirarDinero(50);
-        } catch (excepcionValidar e) {
-            System.out.println(e);
-        }
-        System.out.println(c2.saldo);
-        System.out.println(c2.movimientos);*/
+        /*
+         * CuentaCorriente c1 = new CuentaCorriente(1, new ClienteBnaco("null", "null",
+         * "null", 10, LocalDate.of(2001, 12, 11), "null", "null"));
+         * System.out.println(c1.toString());
+         * c1.ingresarDinero(100);
+         * System.out.println(c1.saldo);
+         * try {
+         * c1.retirarDinero(400);
+         * } catch (excepcionValidar e) {
+         * System.out.println(e);
+         * }
+         * System.out.println(c1.saldo);
+         * System.out.println("-----------------------------------");
+         * CuentaVivienda c2 = new CuentaVivienda(1, new ClienteBnaco("Jaime", "null",
+         * "null",
+         * 12, LocalDate.of(2001, 11, 1), "Mostoles", "Cura"));
+         * System.out.println(c2.toString());
+         * c2.ingresarDinero(100);
+         * System.out.println(c2.saldo);
+         * try {
+         * c2.retirarDinero(100);
+         * c2.retirarDinero(50);
+         * } catch (excepcionValidar e) {
+         * System.out.println(e);
+         * }
+         * System.out.println(c2.saldo);
+         * System.out.println(c2.movimientos);
+         */
         MenuCrear();
-        
-       
-        
-    }
 
-    
+    }
 
     public static void MenuCrear() {
 
@@ -102,6 +100,80 @@ public class AppSucursalBancaria {
                     System.out.println("Profesion");
                     String profesion = sc.nextLine();
                     CuentaBanco c1 = new CuentaCorriente(clientes.size() + 1,
+                            new ClienteBnaco(nombre, apellidos, dni, edad, fecha, ciudad, profesion));
+
+                    System.out.println(c1.toString());
+
+                } catch (InputMismatchException e) {
+                    System.out.println("Has metido un valor mal ");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
+                break;
+            case 2:
+                System.out.println("Vamos a crear una cuenta corriente");
+                try {
+                    System.out.println("Introduce nombre");
+                    String nombre = sc.nextLine();
+                    System.out.println("Introduce apellidos");
+                    String apellidos = sc.nextLine();
+                    System.out.println("Introduce dni");
+                    String dni = sc.nextLine();
+                    sc.nextLine();
+                    System.out.println("Introduce edad");
+                    int edad = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Fecha de nacimiento");
+                    System.out.println("Introduce dia");
+                    int dia = sc.nextInt();
+                    System.out.println("Introduce mes en numero");
+                    int mes = sc.nextInt();
+                    System.out.println("introduce años");
+                    int ano = sc.nextInt();
+                    sc.nextLine();
+                    LocalDate fecha = LocalDate.of(ano, mes, dia);
+                    System.out.println("Ciudad");
+                    String ciudad = sc.nextLine();
+                    System.out.println("Profesion");
+                    String profesion = sc.nextLine();
+                    CuentaBanco c1 = new CuentaVivienda(clientes.size() + 1,
+                            new ClienteBnaco(nombre, apellidos, dni, edad, fecha, ciudad, profesion));
+                    System.out.println(c1.toString());
+
+                } catch (InputMismatchException e) {
+                    System.out.println("Has metido un valor mal ");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+                break;
+            case 3:
+                System.out.println("Vamos a crear una cuenta corriente");
+                try {
+                    System.out.println("Introduce nombre");
+                    String nombre = sc.nextLine();
+                    System.out.println("Introduce apellidos");
+                    String apellidos = sc.nextLine();
+                    System.out.println("Introduce dni");
+                    String dni = sc.nextLine();
+                    sc.nextLine();
+                    System.out.println("Introduce edad");
+                    int edad = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Fecha de nacimiento");
+                    System.out.println("Introduce dia");
+                    int dia = sc.nextInt();
+                    System.out.println("Introduce mes en numero");
+                    int mes = sc.nextInt();
+                    System.out.println("introduce años");
+                    int ano = sc.nextInt();
+                    sc.nextLine();
+                    LocalDate fecha = LocalDate.of(ano, mes, dia);
+                    System.out.println("Ciudad");
+                    String ciudad = sc.nextLine();
+                    System.out.println("Profesion");
+                    String profesion = sc.nextLine();
+                    CuentaBanco c1 = new FondoInversion(clientes.size() + 1,
                             new ClienteBnaco(nombre, apellidos, dni, edad, fecha, ciudad, profesion));
 
                     System.out.println(c1.toString());
