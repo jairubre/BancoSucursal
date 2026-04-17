@@ -20,7 +20,7 @@ public abstract class CuentaBanco {
 
     public abstract void retirarDinero(double cantidad) throws excepcionValidar;
 
-    public abstract void ingresarDinero(double cantidad);
+    public abstract void ingresarDinero(double cantidad) throws excepcionValidar;
 
     public abstract void validarSaldo(double cantidad) throws excepcionValidar;
 

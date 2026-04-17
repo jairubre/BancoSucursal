@@ -1,15 +1,17 @@
 package src.BancoCliente;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class AppSucursalBancaria {
     static Scanner sc = new Scanner(System.in);
-    static List<CuentaBanco> clientes = new ArrayList<CuentaBanco>();
+    static List<CuentaBanco> cuentas = new ArrayList<CuentaBanco>();
+    static List<ClienteBnaco> clientes = new ArrayList<ClienteBnaco>();
 
     public static void main(String[] args) {
 
@@ -43,10 +45,74 @@ public class AppSucursalBancaria {
          */
         MenuCrear();
         System.out.println("************************************");
-        System.out.println(clientes.size());
-        for (CuentaBanco c1 : clientes) {
+        System.out.println(cuentas.size());
+        for (CuentaBanco c1 : cuentas) {
             System.out.println("hola");
             System.out.println(c1.toString());
+        }
+
+    }
+
+    public static void menu() {
+        System.out.println("Introduce una opcion");
+        System.out.println("Crear cliente");
+        System.out.println("Crear suscursal");
+        int opcion = 0;
+        switch (opcion) {
+            case 1:
+
+                break;
+            case 2:
+                MenuCrear();
+                break;
+
+            default:
+                break;
+        }
+
+    }
+
+    public static String validarDni(String dni) throws ClienteExisteExcepcion {
+        for (ClienteBnaco cliente : clientes) {
+            if (cliente.getDni().equals(dni)) {
+                throw new ClienteExisteExcepcion(cliente);
+            }
+        }
+        return dni;
+    }
+
+    public static void crearCliente() {
+        try {
+            System.out.println("Introduce dni");
+            String dni = sc.nextLine();
+            validarDni(dni);
+            System.out.println("Introduce nombre");
+            String nombre = sc.nextLine();
+            System.out.println("Introduce apellidos");
+            String apellidos = sc.nextLine();
+            sc.nextLine();
+            System.out.println("Introduce edad");
+            int edad = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Fecha de nacimiento");
+            System.out.println("Introduce dia");
+            int dia = sc.nextInt();
+            System.out.println("Introduce mes en numero");
+            int mes = sc.nextInt();
+            System.out.println("introduce años");
+            int ano = sc.nextInt();
+            sc.nextLine();
+            LocalDate fecha = LocalDate.of(ano, mes, dia);
+            System.out.println("Ciudad");
+            String ciudad = sc.nextLine();
+            System.out.println("Profesion");
+            String profesion = sc.nextLine();
+            ClienteBnaco cl1 = new ClienteBnaco(nombre, apellidos, dni, edad, fecha, ciudad, profesion);
+            clientes.add(cl1);
+        } catch (DateTimeException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
         }
 
     }
@@ -60,7 +126,8 @@ public class AppSucursalBancaria {
             System.out.println("1.Cuenta Corriente");
             System.out.println("2.Cuenta Vivienda");
             System.out.println("3.Fondos de inversión");
-            System.out.println("4.salir");
+            System.out.println("4.Crear Cliente");
+            System.out.println("5.salir");
             try {
                 opcion = sc.nextInt();
                 sc.nextLine();
@@ -72,7 +139,7 @@ public class AppSucursalBancaria {
             }
             sc.nextLine();
 
-        } while (opcion != 4);
+        } while (opcion != 5);
 
     }
 
@@ -105,9 +172,9 @@ public class AppSucursalBancaria {
                     String ciudad = sc.nextLine();
                     System.out.println("Profesion");
                     String profesion = sc.nextLine();
-                    CuentaBanco c1 = new CuentaCorriente(clientes.size() + 1,
+                    CuentaBanco c1 = new CuentaCorriente(cuentas.size() + 1,
                             new ClienteBnaco(nombre, apellidos, dni, edad, fecha, ciudad, profesion));
-                    clientes.add(c1);
+                    cuentas.add(c1);
 
                 } catch (InputMismatchException e) {
                     System.out.println("Has metido un valor mal ");
@@ -142,9 +209,9 @@ public class AppSucursalBancaria {
                     String ciudad = sc.nextLine();
                     System.out.println("Profesion");
                     String profesion = sc.nextLine();
-                    CuentaBanco c1 = new CuentaVivienda(clientes.size() + 1,
+                    CuentaBanco c1 = new CuentaVivienda(cuentas.size() + 1,
                             new ClienteBnaco(nombre, apellidos, dni, edad, fecha, ciudad, profesion));
-                    clientes.add(c1);
+                    cuentas.add(c1);
 
                 } catch (InputMismatchException e) {
                     System.out.println("Has metido un valor mal ");
@@ -179,15 +246,18 @@ public class AppSucursalBancaria {
                     String ciudad = sc.nextLine();
                     System.out.println("Profesion");
                     String profesion = sc.nextLine();
-                    CuentaBanco c1 = new FondoInversion(clientes.size() + 1,
+                    CuentaBanco c1 = new FondoInversion(cuentas.size() + 1,
                             new ClienteBnaco(nombre, apellidos, dni, edad, fecha, ciudad, profesion));
-                    clientes.add(c1);
+                    cuentas.add(c1);
 
                 } catch (InputMismatchException e) {
                     System.out.println("Has metido un valor mal ");
                 } catch (Exception e) {
                     System.out.println(e);
                 }
+                break;
+            case 4:
+                crearCliente();
                 break;
 
             default:
